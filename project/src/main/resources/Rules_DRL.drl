@@ -1,0 +1,12 @@
+import com.myspace.poc_rules.*;
+
+rule "Validar Aprobacion"
+no-loop
+ruleflow-group "Regla Cambiar Nombre"
+    when 
+        $v: validacionDTO (nom_validacion == "Si")
+    then 
+       modify ($v) {
+			setNom_validacion("No")
+		}
+    end
